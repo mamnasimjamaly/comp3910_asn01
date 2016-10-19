@@ -75,6 +75,13 @@ public class Employees implements EmployeeList, Serializable{
 	public Employee getCurrentEmployee() {
 		return currentEmployee;
 	}
+	
+	/**
+     * @return the current user.
+     */
+	public void setCurrentEmployee(Employee e) {
+		currentEmployee = e;
+	}
 
     /**
      * @return the administrator user object.
@@ -101,6 +108,20 @@ public class Employees implements EmployeeList, Serializable{
 		return false;
 	}
 
+	public String login(Credentials credential) {
+		if(verifyUser(credential) == true) {
+			if(credential.getUserName() == "admin") {
+				return "successAdmin";
+			}
+			for(int i = 0; i < employees.size(); i++) {
+				if(employees.get(i).getUserName() == credential.getUserName()){
+					return "success";
+				}
+			}
+		}
+		return "failure";
+	}
+	
     /**
      * Logs the user out of the system.
      *
@@ -111,9 +132,9 @@ public class Employees implements EmployeeList, Serializable{
 	public String logout(Employee employee) {
 		if(employee == currentEmployee) {
 			currentEmployee = null;
-			return "Success";
+			return "success";
 		}
-		return "False";
+		return "failure";
 	}
 
     /**
