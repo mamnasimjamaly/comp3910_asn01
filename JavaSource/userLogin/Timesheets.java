@@ -3,6 +3,7 @@ package userLogin;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import ca.bcit.infosys.timesheet.TimesheetCollection;
 @Named("timesheets")
 @ApplicationScoped
 public class Timesheets implements TimesheetCollection, Serializable{
-	ArrayList<Timesheet> timesheets = new ArrayList<Timesheet>();
+	private static ArrayList<Timesheet> timesheets = new ArrayList<Timesheet>();
 	
 	/**
      * @return all of the timesheets.
@@ -80,5 +81,22 @@ public class Timesheets implements TimesheetCollection, Serializable{
 		timesheets.add(timesheet);
 		return "Success";
 	}
+	
+	/**
+     * Adds an existing timesheet to the collection
+     *
+     * @return a String representing navigation to the newTimesheet page.
+     */
+	public static void addTimesheet(Timesheet timesheet) {
+		timesheets.add(timesheet);
+	}
 
+	public static Date getCurrentFriday() {
+		Calendar c = new GregorianCalendar();
+        int currentDay = c.get(Calendar.DAY_OF_WEEK);
+        int leftDays = Calendar.FRIDAY - currentDay;
+        c.add(Calendar.DATE, leftDays);
+        Date endWeek = c.getTime();
+        return endWeek;
+	}
 }

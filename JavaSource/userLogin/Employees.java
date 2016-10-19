@@ -2,6 +2,7 @@ package userLogin;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import javax.inject.Named;
 import ca.bcit.infosys.employee.Credentials;
 import ca.bcit.infosys.employee.Employee;
 import ca.bcit.infosys.employee.EmployeeList;
+import ca.bcit.infosys.timesheet.Timesheet;
 
 @Named("employees")
 @ApplicationScoped
@@ -167,6 +169,15 @@ public class Employees implements EmployeeList, Serializable{
 	@Override
 	public void addEmployee(Employee newEmployee) {
 		employees.add(newEmployee);
+				
+		Timesheet userTimesheet = new Timesheet(currentEmployee, Timesheets.getCurrentFriday(), null);
+		userTimesheet.addRow();
+		userTimesheet.addRow();
+		userTimesheet.addRow();
+		userTimesheet.addRow();
+		userTimesheet.addRow();
+		
+		Timesheets.addTimesheet(userTimesheet);
 	}
 
 }
