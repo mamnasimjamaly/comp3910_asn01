@@ -7,7 +7,7 @@ import javax.inject.Named;
 
 import ca.bcit.infosys.employee.Employee;
 
-@Named("employee-user")
+@Named("employeeUser")
 @ApplicationScoped
 public class EmployeeUser extends Employee implements Serializable {
 	

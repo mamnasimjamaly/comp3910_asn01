@@ -17,6 +17,9 @@
     NAME="output2" PATH="/admin-page.xhtml"
     TARGET="rules:#admin-page.xhtml"
     TITLE="#{employees.login}:successAdmin" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="success::#time-sheet.xhtml" NAME="output3"
+    PATH="/time-sheet.xhtml" TARGET="rules:#time-sheet.xhtml"
+    TITLE="success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#time-sheet.xhtml" PATH="/time-sheet.xhtml"
@@ -27,10 +30,9 @@
   SHAPE="48,193,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#sign-up.xhtml:0" NAME="item"
    PATH="/sign-up.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="success:#{employees.signUp}:#time-sheet.xhtml" NAME="output"
+   <PROCESS-ITEM-OUTPUT ID="success::#time-sheet.xhtml" NAME="output"
     PATH="/time-sheet.xhtml" TARGET="rules:#time-sheet.xhtml"
-    TITLE="#{employees.signUp}:success" model-entity="JSFProcessItemOutput"/>
+    TITLE="success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="failure:#{employees.login}:#sign-up.xhtml"
     NAME="output1" PATH="/sign-up.xhtml" TARGET="rules:#sign-up.xhtml"
     TITLE="#{employees.login}:failure" model-entity="JSFProcessItemOutput"/>

@@ -3,6 +3,7 @@
 	<name>assignment01</name>
 	<comment></comment>
 	<projects>
+		<project>timesheet</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
