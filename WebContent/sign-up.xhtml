@@ -16,48 +16,50 @@
 		</ui:define>
 		<ui:define name="content">
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-3">
-						<h5>username</h5>
+				<h:form>
+					<div class="row">
+						<div class="col-sm-3">
+							<h5>username</h5>
+						</div>
+						<div class="col-sm-9">
+							<h:inputText value="#{user.userName}"></h:inputText>
+						</div>
 					</div>
-					<div class="col-sm-9">
-						<h:inputText value="#{user.username}"></h:inputText>
+					<div class="row">
+						<div class="col-sm-3">
+							<h5>password</h5>
+						</div>
+						<div class="col-sm-3">
+							<h:inputText value="#{user.password}"></h:inputText>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3">
-						<h5>password</h5>
+					<div class="row">
+						<div class="col-sm-3">
+							<h5>employee number</h5>
+						</div>
+						<div class="col-sm-3">
+							<h:inputText value="#{employeeUser.empNumber}"></h:inputText>
+						</div>
 					</div>
-					<div class="col-sm-3">
-						<h:inputText value="#{user.password}"></h:inputText>
+
+					<div class="row">
+						<div class="col-sm-3">
+							<h5>employee name</h5>
+						</div>
+						<div class="col-sm-3">
+							<h:inputText value="#{employeeUser.name}"></h:inputText>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3">
-						<h5>employee number</h5>
+					<div class="row">
+						<div class="col-xs-4">
+							<h:commandButton
+								action="#{employees.signUp(employeeUser.name, employeeUser.empNumber, user.userName, user.password)}"
+								class="btn btn-lg btn-success" value="Sign-up"></h:commandButton>
+						</div>
+						<div class="col-xs-4"></div>
+						<div class="col-xs-4"></div>
 					</div>
-					<div class="col-sm-3">
-						<h:inputText value="#{employee-user.empNumber}"></h:inputText>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="col-sm-3">
-						<h5>employee name</h5>
-					</div>
-					<div class="col-sm-3">
-						<h:inputText value="#{employee-user.name}"></h:inputText>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4">
-						<h:commandButton
-							action="#{employees.signUp(employee-user.name, employee-user.employee-user.empNumber, user.userName, user.password)}"
-							class="btn btn-lg btn-success" value="Sign-up"></h:commandButton>
-					</div>
-					<div class="col-xs-4"></div>
-					<div class="col-xs-4"></div>
-				</div>
+				</h:form>
 			</div>
 		</ui:define>
 	</ui:composition>
