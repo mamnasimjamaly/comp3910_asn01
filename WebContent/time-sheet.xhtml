@@ -16,6 +16,14 @@
 		</ui:define>
 		<ui:define name="content">
 			<div class="container">
+				<div class = "row">
+					<div class = "col-sm-4"><b>Employee Number: </b>#{employees.currentEmployee.empNumber}</div>
+					<div class = "col-sm-4"><b>Week Number: </b>#{timesheets.getCurrentTimesheet(employees.currentEmployee).weekNumber}</div>
+					<div class = "col-sm-4"><b>Week Ending: </b>#{timesheets.getCurrentTimesheet(employees.currentEmployee).weekEnding}</div>
+				</div>
+				<div class = "row">
+					<div class = "col-sm-6"><b>Name:</b>> #{employees.currentEmployee.name} </div>
+				</div>
 				<h:dataTable
 					value="#{timesheets.getTimesheets(employees.currentEmployee)}"
 					var="entry" styleClass="table table-responsive">					

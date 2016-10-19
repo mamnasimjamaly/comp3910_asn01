@@ -153,7 +153,9 @@ public class Employees implements EmployeeList, Serializable{
 	 *
 	*/
 	public String signUp(final String employeeName, final int employeeNumber, final String username, final String password) {
-		addEmployee(new Employee(employeeName, employeeNumber, username));
+		Employee emp = new Employee(employeeName, employeeNumber, username);
+		addEmployee(emp);
+		setCurrentEmployee(emp);
 		loginCombos.put(username, password);
 		return "success";
 	}
