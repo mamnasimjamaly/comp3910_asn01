@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Ignored</title>
+</h:head>
+<h:body>
+	<ui:composition template="base.xhtml">
+		<ui:define name="header">
+			<h1>Time-Sheet</h1>
+		</ui:define>
+		<ui:define name="content">
+			<div class="container">
+				<h:dataTable
+					value="#{timesheets.getTimesheets(employees.currentEmployee)}"
+					var="entry" styleClass="table table-responsive">					
+					<h:column>
+						<f:facet name="header">Project</f:facet>    				
+      						#{entry.details.projectID}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">WP</f:facet>    				
+      						#{entry.details.workPackage}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">Total</f:facet>    				
+      						#{enty.details.getSum}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">	Sat</f:facet>    				
+      						#{entry.details.hoursForWeek[0]}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">	Sun</f:facet>    				
+      						#{entry.details.hoursForWeek[1]}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">Mon</f:facet>    				
+      						#{entry.details.hoursForWeek[2]}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">Tues</f:facet>    				
+      						#{entry.details.hoursForWeek[3]}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">Wed</f:facet>    				
+      						#{entry.hoursForWeek[4]}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">Thurs</f:facet>    				
+      						#{entry.hoursForWeek[5]}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">Fri</f:facet>    				
+      						#{entry.hoursForWeek[6]}
+   					</h:column>
+					<h:column>
+						<f:facet name="header">Notes</f:facet>    				
+      						#{entry.notes}
+   					</h:column>
+				</h:dataTable>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
